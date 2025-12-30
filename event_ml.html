@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Segafams | Event Mobile Legends</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(180deg, #000010, #000020);
+  color: #bfe9ff;
+  image-rendering: pixelated;
+}
+
+/* Header */
+header {
+  background: #001133;
+  border-bottom: 4px solid #00bfff;
+  box-shadow: 0 0 20px #0077ff;
+  padding: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 12px;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #0077ff;
+}
+
+nav a {
+  margin-left: 15px;
+  color: #66ccff;
+  text-decoration: none;
+  font-size: 8px;
+  border: 2px solid #0077ff;
+  padding: 6px 10px;
+  background: #000020;
+  box-shadow: 0 0 10px #0077ff;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background: #0077ff;
+  color: #000;
+  box-shadow: 0 0 20px #00bfff;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #000020;
+  border-bottom: 4px solid #00bfff;
+  box-shadow: 0 0 20px #0077ff;
+}
+
+.hero img {
+  width: 200px;
+  border-radius: 10px;
+  border: 3px solid #00bfff;
+  box-shadow: 0 0 20px #0077ff;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-size: 10px;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 8px;
+  color: #66ccff;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content Sections */
+.section {
+  max-width: 900px;
+  margin: 60px auto;
+  background: #001133;
+  border: 3px solid #00bfff;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #0077ff;
+  padding: 25px;
+}
+
+.section h3 {
+  font-size: 9px;
+  color: #00bfff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #00bfff;
+}
+
+.section p {
+  font-size: 8px;
+  color: #bfe9ff;
+  line-height: 1.6;
+}
+
+/* Registrasi */
+.btn-register {
+  display: inline-block;
+  background: #00bfff;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #0077ff;
+  font-size: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 15px #00bfff;
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+  background: #0077ff;
+  color: #fff;
+  box-shadow: 0 0 25px #00bfff;
+}
+
+/* Pemenang */
+.winner-list {
+  list-style: none;
+  padding: 0;
+}
+
+.winner-list li {
+  font-size: 8px;
+  color: #66ccff;
+  margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+  background: #001133;
+  text-align: center;
+  padding: 20px;
+  color: #66ccff;
+  font-size: 8px;
+  border-top: 4px solid #00bfff;
+  box-shadow: 0 -5px 20px #0077ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    padding: 15px 20px;
+  }
+
+  header h1 {
+    font-size: 10px;
+  }
+
+  /* Menu utama disembunyikan dulu */
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #001133;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 180px;
+    border-left: 3px solid #00bfff;
+    border-bottom: 3px solid #00bfff;
+    box-shadow: 0 0 20px #0077ff;
+    padding: 15px;
+    z-index: 100;
+  }
+
+  /* Saat aktif (tombol ☰ ditekan) */
+  nav.active {
+    display: flex;
+  }
+
+  /* Tombol hamburger muncul */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    background: #00bfff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #00bfff;
+  }
+
+  /* Link menu di mode mobile */
+  nav a {
+    font-size: 8px;
+    padding: 8px;
+    margin: 5px 0;
+    text-align: center;
+    border: 2px solid #0077ff;
+    background: #000020;
+    box-shadow: 0 0 10px #0077ff;
+  }
+
+  nav a:hover {
+    background: #0077ff;
+    color: #000;
+  }
+
+  /* Hero section agar teks tidak terlalu besar */
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h2 {
+    font-size: 9px;
+  }
+
+  .hero p {
+    font-size: 7px;
+  }
+
+  /* Grid event agar 1 kolom di HP */
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SEGAFAMS</h1>
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav-menu">
+    <a href="segafams.html">Kaciw</a>
+    <a href="sega.html">Segafams</a>
+    <a href="biodata.html">Biodata</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="event.html">Event</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="SEGAFAMS Tournament.png" alt="Mobile Legends Event">
+  <h2>Mobile Legends Tournament</h2>
+  <p>
+    Turnamen Mobile Legends Segafams 2025 hadir untuk para gamer sejati!  
+    Tunjukkan kemampuan timmu dalam pertarungan 5v5 dan rebut gelar juara dengan hadiah menarik.
+  </p>
+</section>
+
+<section class="section">
+  <h3>Informasi Event</h3>
+  <p>
+    📅 Tanggal: 15 Januari 2025<br>
+    🕒 Waktu: 19.00 WIB<br>
+    📍 Lokasi: Online Tournament (Custom Room)<br><br>
+    Format pertandingan: BO3 eliminasi langsung.  
+    Setiap tim wajib memiliki 5 pemain utama dan 1 cadangan.
+  </p>
+</section>
+
+<section class="section">
+  <h3>Registrasi</h3>
+  <p>Isi formulir pendaftaran di bawah ini untuk bergabung dalam turnamen.</p>
+  <a href="#" class="btn-register">Daftar Sekarang</a>
+</section>
+
+<section class="section">
+  <h3>Daftar Pemenang</h3>
+  <ul class="winner-list">
+    <li>🥇 Team NV</li>
+    <li>🥈 Team DIGENDOMG MM</li>
+    <li>🥉 Team GOD SEEKER</li>
+  </ul>
+</section>
+
+<footer>
+  © 2025 SEGAFAMS | Mobile Legends Tournament
+</footer>
+
+<script> const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+</script>
+</body>
+</html>
