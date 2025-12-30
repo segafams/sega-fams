@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Segafams Shop</title>
+  <link rel="icon" href="logo_sega.jpg" type="image/png" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  background: repeating-linear-gradient(
+    45deg,
+    #000010,
+    #000010 10px,
+    #0a0a1a 10px,
+    #0a0a1a 20px
+  );
+  background-size: cover;
+  color: #bfe9ff;
+  min-height: 100vh;
+  image-rendering: pixelated;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: #001133;
+  border-bottom: 4px solid #00bfff;
+  box-shadow: 0 0 20px #0077ff;
+  position: relative;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 14px;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #0077ff;
+}
+
+/* SEARCH BAR */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #000020;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 10px #0077ff;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  font-size: 8px;
+  padding: 6px;
+  width: 200px;
+  background: transparent;
+  color: #bfe9ff;
+}
+
+.search-btn {
+  border: none;
+  background: none;
+  font-size: 10px;
+  color: #00bfff;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+}
+
+.search-btn:hover {
+  color: #fff;
+}
+
+/* PROFILE ICON */
+.profile-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 10px #0077ff;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00bfff;
+}
+
+/* PRODUK GRID */
+.shop-container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #001133;
+  border: 3px solid #00bfff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 15px #0077ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00bfff;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 2px solid #00bfff;
+  border-radius: 8px;
+  background: #000020;
+  image-rendering: pixelated;
+}
+
+.product-card h3 {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff;
+}
+
+.product-card p {
+  margin: 5px 0;
+  font-size: 8px;
+  color: #66ccff;
+}
+
+.btn-buy {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #00bfff;
+  color: #000;
+  border-radius: 6px;
+  font-size: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #0077ff;
+  box-shadow: 0 0 15px #00bfff;
+  transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+  background: #0077ff;
+  color: #fff;
+  box-shadow: 0 0 25px #00bfff;
+}
+
+/* FOOTER */
+footer {
+  background: #001133;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  color: #66ccff;
+  font-size: 8px;
+  border-top: 4px solid #00bfff;
+  box-shadow: 0 -5px 20px #0077ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  header h1 {
+    font-size: 10px;
+  }
+
+  /* Search bar jadi ikon di HP */
+  .search-container {
+    position: relative;
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  .search-input {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 150px;
+    background: #000020;
+    border: 2px solid #00bfff;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 8px;
+    color: #bfe9ff;
+    box-shadow: 0 0 10px #0077ff;
+  }
+
+  .search-container.active .search-input {
+    display: block;
+  }
+
+  .search-btn {
+    font-size: 14px;
+    background: none;
+    border: none;
+    color: #00bfff;
+    cursor: pointer;
+  }
+
+  .search-btn:hover {
+    color: #fff;
+  }
+
+  .profile-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Produk grid jadi 1 kolom di HP */
+  .shop-container {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SEGASHOP</h1>
+
+  <div class="search-container" id="search-container">
+    <input type="text" class="search-input" placeholder="Cari produk..." />
+    <button class="search-btn">🔍</button>
+  </div>
+
+  <img src="logo_sega.jpg" alt="Profile" class="profile-icon" onclick="window.location.href='segafams.html'">
+</header>
+
+
+<section class="shop-container">
+  <div class="product-card">
+    <img src="shop/Standee.png" alt="Produk 1" />
+    <h3>Standee Kaciw</h3>
+    <p>Rp ---.000</p>
+    <a href="#" class="btn-buy"
+       onclick="addToCart('Standee Kaciw', 'belum ada harga')">
+       Beli Sekarang
+    </a>
+  </div>
+
+  <div class="product-card">
+    <img src="shop/Sticker.jpg" alt="Produk 2" />
+    <h3>Sticker Kaciw</h3>
+    <p>Rp ---.000</p>
+    <a href="#" class="btn-buy"
+       onclick="addToCart('Sticker Kaciw', 'belum ada harga')">
+       Beli Sekarang
+    </a>
+  </div>
+
+  <div class="product-card">
+    <img src="shop/Topi Mancing.jpg" alt="Produk 3" />
+    <h3>Topi Mancing</h3>
+    <p>Rp ---.000</p>
+    <a href="#" class="btn-buy"
+       onclick="addToCart('Topi Mancing', 'belum ada harga')">
+       Beli Sekarang
+    </a>
+  </div>
+
+  <div class="product-card">
+    <img src="shop/Tote Bag.jpg" alt="Produk 3" />
+    <h3>Tota Bag</h3>
+    <p>Rp ---.000</p>
+    <a href="#" class="btn-buy"
+       onclick="addToCart('Tota Bag', 'belum ada harga')">
+       Beli Sekarang
+    </a>
+  </div>
+
+  <div class="product-card">
+    <img src="shop/Tshirt.jpg" alt="Produk 3" />
+    <h3>Tshirt</h3>
+    <p>Rp ---.000</p>
+    <a href="#" class="btn-buy"
+       onclick="addToCart('Tshirt', 'belum ada harga')">
+       Beli Sekarang
+    </a>
+  </div>
+</section>
+
+
+<script>
+function addToCart(productName, productPrice) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let existing = cart.find(item => item.name === productName);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({
+      name: productName,
+      price: productPrice,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  const lanjut = confirm(
+    productName + " sudah ditambahkan.\n\nLanjut transaksi atau cari barang lain?"
+  );
+
+  if (lanjut) {
+    window.location.href = "transaksi.html";
+  }
+}
+
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+const searchContainer = document.getElementById('search-container');
+const searchBtn = document.querySelector('.search-btn');
+
+searchBtn.addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) {
+    e.preventDefault();
+    searchContainer.classList.toggle('active');
+  }
+});
+
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+</script>
+
+
+
+</body>
+</html>
