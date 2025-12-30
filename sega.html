@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEGAFAMS Official</title>
+  <link rel="icon" href="logo_sega.jpg" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  background: repeating-linear-gradient(
+    45deg,
+    #000010,
+    #000010 10px,
+    #0a0a1a 10px,
+    #0a0a1a 20px
+  );
+  color: #bfe9ff;
+  min-height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.5s ease;
+  image-rendering: pixelated;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+  background: #001133;
+  border-bottom: 4px solid #00bfff;
+  box-shadow: 0 0 20px #0077ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+@keyframes naikTurunHuruf {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+header h1 {
+  font-size: 14px;
+  color: #00bfff;
+  display: flex;
+  gap: 2px;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #0077ff;
+}
+
+header h1 span {
+  display: inline-block;
+  animation: naikTurunHuruf 1.5s infinite ease-in-out;
+}
+
+nav a {
+  margin-left: 15px;
+  color: #66ccff;
+  text-decoration: none;
+  font-size: 8px;
+  border: 2px solid #0077ff;
+  padding: 6px 10px;
+  background: #000020;
+  box-shadow: 0 0 10px #0077ff;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background: #0077ff;
+  color: #000;
+  box-shadow: 0 0 20px #00bfff;
+}
+
+.intro {
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 40px;
+  background: #001133;
+  border: 3px solid #00bfff;
+  box-shadow: 0 0 20px #0077ff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.intro h2 {
+  font-size: 12px;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff;
+  margin-bottom: 15px;
+}
+
+.intro p {
+  font-size: 8px;
+  color: #66ccff;
+  line-height: 1.8;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.card {
+  background: #000020;
+  border: 3px solid #00bfff;
+  box-shadow: 0 0 15px #0077ff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00bfff;
+}
+
+.card i {
+  font-size: 28px;
+  color: #00bfff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #00bfff;
+}
+
+.card div {
+  font-size: 8px;
+  color: #66ccff;
+}
+
+.social-icons {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  font-size: 16px;
+  color: #00bfff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00bfff;
+  transform: scale(1.2);
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 8px;
+  color: #66ccff;
+  opacity: 0.9;
+  border-top: 3px solid #00bfff;
+  padding: 20px;
+  box-shadow: 0 -5px 20px #0077ff;
+  background: #001133;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    padding: 15px 20px;
+  }
+
+  header h1 {
+    font-size: 10px;
+  }
+
+  /* Menu utama disembunyikan dulu */
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #001133;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 180px;
+    border-left: 3px solid #00bfff;
+    border-bottom: 3px solid #00bfff;
+    box-shadow: 0 0 20px #0077ff;
+    padding: 15px;
+    z-index: 100;
+  }
+
+  /* Saat aktif (tombol ☰ ditekan) */
+  nav.active {
+    display: flex;
+  }
+
+  /* Tombol hamburger muncul */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    background: #00bfff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #00bfff;
+  }
+
+  /* Link menu di mode mobile */
+  nav a {
+    font-size: 8px;
+    padding: 8px;
+    margin: 5px 0;
+    text-align: center;
+    border: 2px solid #0077ff;
+    background: #000020;
+    box-shadow: 0 0 10px #0077ff;
+  }
+
+  nav a:hover {
+    background: #0077ff;
+    color: #000;
+  }
+
+  /* Hero section agar teks tidak terlalu besar */
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h2 {
+    font-size: 9px;
+  }
+
+  .hero p {
+    font-size: 7px;
+  }
+
+  /* Grid event agar 1 kolom di HP */
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header dari code pertama -->
+  <header>
+  <h1>SEGAFAMS</h1>
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav-menu">
+    <a href="segafams.html">Kaciw</a>
+    <a href="sega.html">Segafams</a>
+    <a href="biodata.html">Biodata</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="event.html">Event</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+</header>
+
+  <div class="intro">
+    <h2>Selamat Datang di SEGAFAMS Official</h2>
+    <p>✨ Hi guys! This is our platform ✨</p>
+    <p>Jangan lupa follow semua sosmed SEGAFAMS dan aktifkan notifikasi agar tidak ketinggalan info!</p>
+  </div>
+
+  <div class="grid-container">
+    <div class="card" onclick="openLink('https://discord.com/invite/e6vzchHtzD')">
+      <i class="fa-brands fa-discord"></i>
+      <div>Join Discord</div>
+    </div>
+    <div class="card" onclick="openLink('https://www.instagram.com/segafams_official')">
+      <i class="fa-brands fa-instagram"></i>
+      <div>Instagram</div>
+    </div>
+    <div class="card" onclick="openLink('https://www.tiktok.com/@timkaciw_fanbase01')">
+      <i class="fa-brands fa-tiktok"></i>
+      <div>TikTok</div>
+    </div>
+    <div class="card" onclick="openLink('https://www.youtube.com/@segafamsofficial?sub_confirmation=1')">
+      <i class="fa-brands fa-youtube"></i>
+      <div>YouTube</div>
+    </div>
+    <div class="card" onclick="openLink('https://www.pinterest.com/segafams')">
+      <i class="fa-brands fa-pinterest"></i>
+      <div>Pinterest</div>
+    </div>
+    <div class="card" onclick="openLink('https://www.instagram.com/j/AbYyRClQKGvTvWfv/')">
+      <i class="fa-brands fa-instagram"></i>
+      <div>SEGAFAMS</div>
+    </div>
+    <div class="card" onclick="openLink('https://www.whatsapp.com/channel/0029Vb6XG2q5vKA91OvQlo3w')">
+      <i class="fa-brands fa-whatsapp"></i>
+      <div>SEGAFAMS💙</div>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/segafams_official" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://discord.com/invite/e6vzchHtzD" target="_blank"><i class="fa-brands fa-discord"></i></a>
+    <a href="https://www.youtube.com/@segafamsofficial?sub_confirmation=1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@timkaciw_fanbase01" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 SEGAFAMS Official | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+
+     document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const href = this.getAttribute("href");
+
+      // Tambahkan animasi klik
+      this.classList.add("animate-click");
+
+      // Setelah animasi klik, lakukan fade out dan pindah halaman
+      setTimeout(() => {
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500); // durasi fade-out
+      }, 200); // durasi klikShake
+    });
+  });
+
+  const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+  </script>
+
+</body>
+</html>
